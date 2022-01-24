@@ -39,18 +39,15 @@ class Card {
             </div>
             <i class="emoji"></i>
           </div>`;
-        setTimeout(() => {
-            const listHolder = this.element.querySelector(
-                ".character__overlay"
-            );
-            const list = listHolder.querySelector(".list-unstyled");
 
-            propperties.forEach((propperty) => {
-                const newPropperty = document.createElement("li");
-                newPropperty.textContent = propperty;
-                list.append(newPropperty);
-            });
-        }, 10);
+        const listHolder = this.element.querySelector(".character__overlay");
+        const list = listHolder.querySelector(".list-unstyled");
+
+        propperties.forEach((propperty) => {
+            const newPropperty = document.createElement("li");
+            newPropperty.textContent = propperty;
+            list.append(newPropperty);
+        });
     }
 }
 
