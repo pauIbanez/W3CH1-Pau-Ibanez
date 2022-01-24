@@ -17,3 +17,5 @@ class Comunications {
       />`;
     }
 }
+
+export default Comunications;
