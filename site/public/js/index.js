@@ -7,7 +7,7 @@ const setup = () => {
     const personajes = inizializePersonajes();
     const properties = getCharacterOwnPropperties(personajes[0]);
     const communicator = new Comunications();
-    const card = new Card(personajes[0], properties, "img/");
+    const card = new Card(personajes[0], properties);
 };
 
 setup();
