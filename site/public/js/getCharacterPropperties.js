@@ -1,3 +1,6 @@
+import Asesor from "./Asesor.js";
+import Escudero from "./Escudero.js";
+
 const getCharacterOwnPropperties = (personaje) => {
     const propperties = Object.getOwnPropertyNames(personaje);
 
@@ -14,17 +17,18 @@ const getCharacterOwnPropperties = (personaje) => {
     );
 
     return characterProperties.map((property) => {
-        let stringReturn = "";
-        switch (property) {
-            case "anyosReinado":
-                stringReturn = `Años de reinado: ${personaje.anyosReinado}`;
-                break;
+        const splittedParam = property.split(/(?=[A-Z])/);
 
-            default:
-                break;
+        const formatedParam = splittedParam.map((word, i) => {
+            if (i > 0) {
+                return word.toLowerCase();
+            }
+            return word[0].toLocaleUpperCase() + word.substring(1);
+        });
+        if (personaje instanceof Asesor || personaje instanceof Escudero) {
+            return `${formatedParam.join(" ")}: ${personaje[property].nombre}`;
         }
-
-        return stringReturn;
+        return `${formatedParam.join(" ")}: ${personaje[property]}`;
     });
 };
 
