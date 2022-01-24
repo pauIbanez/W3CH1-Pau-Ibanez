@@ -1,15 +1,15 @@
 class Card {
     element;
 
-    constructor(propperties, image) {
+    constructor(personaje, ownPropperties, image) {
         this.element = document.createElement("li");
         this.element.className = "character col";
         document.querySelector(".characters-list").append(this.element);
 
-        this.generatreHTML(propperties, image);
+        this.generatreHTML(personaje, ownPropperties, image);
     }
 
-    generatreHTML(propperties, image) {
+    generatreHTML(personaje, ownPropperties, image) {
         this.element.innerHTML = `<div class="card character__card">
             <img
               src="${image}"
@@ -17,14 +17,12 @@ class Card {
               class="character__picture card-img-top"
             />
             <div class="card-body">
-              <h2 class="character__name card-title h4">Nombre y familia</h2>
+              <h2 class="character__name card-title h4">${personaje.nombre} ${personaje.familia} </h2>
               <div class="character__info">
                 <ul class="list-unstyled">
-                  <li>Edad: X años</li>
+                  <li>Edad: ${personaje.edad} años</li>
                   <li>
                     Estado:
-                    <i class="fas fa-thumbs-down"></i>
-                    <i class="fas fa-thumbs-up"></i>
                   </li>
                 </ul>
               </div>
@@ -43,11 +41,26 @@ class Card {
         const listHolder = this.element.querySelector(".character__overlay");
         const list = listHolder.querySelector(".list-unstyled");
 
-        propperties.forEach((propperty) => {
+        ownPropperties.forEach((propperty) => {
             const newPropperty = document.createElement("li");
             newPropperty.textContent = propperty;
             list.append(newPropperty);
         });
+
+        const estadoDisplayer = this.element.querySelector(
+            ".list-unstyled li:nth-child(2)"
+        );
+        if (personaje.vivo) {
+            const icon = document.createElement("i");
+            icon.className = "fas fa-thumbs-up";
+
+            estadoDisplayer.append(icon);
+        } else {
+            const icon = document.createElement("i");
+            icon.className = "fas fa-thumbs-down";
+
+            estadoDisplayer.append(icon);
+        }
     }
 }
 
