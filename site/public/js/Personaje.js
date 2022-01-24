@@ -1,3 +1,5 @@
+import Personaje from "./Personaje.js";
+
 class Personaje {
   nombre;
   familia;
