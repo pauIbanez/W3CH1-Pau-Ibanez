@@ -5,6 +5,8 @@ class Comunications {
         this.element = document.createElement("div");
         this.element.className = "comunications";
 
+        document.querySelector("body").append(this.element);
+
         this.generatreHTML();
     }
 
