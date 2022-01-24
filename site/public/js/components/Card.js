@@ -2,29 +2,14 @@ class Card {
     element;
 
     constructor(propperties, image) {
-        this.element = document.createElement("ul");
+        this.element = document.createElement("li");
         this.element.className = "character col";
-        document.querySelector("body").append(this.element);
+        document.querySelector(".characters-list").append(this.element);
 
         this.generatreHTML(propperties, image);
     }
 
     generatreHTML(propperties, image) {
-        // const propperties = Object.getOwnPropertyNames(personaje);
-
-        // const defaultProppertyNames = [
-        //     "nombre",
-        //     "familia",
-        //     "edad",
-        //     "vivo",
-        //     "serie",
-        // ];
-
-        // const ownPropperties = propperties.filter(
-        //     (property) => !defaultProppertyNames.includes(property)
-        // );
-
-        console.log(propperties.constructor.arguments);
         this.element.innerHTML = `<div class="card character__card">
             <img
               src="${image}"
@@ -54,6 +39,18 @@ class Card {
             </div>
             <i class="emoji"></i>
           </div>`;
+        setTimeout(() => {
+            const listHolder = this.element.querySelector(
+                ".character__overlay"
+            );
+            const list = listHolder.querySelector(".list-unstyled");
+
+            propperties.forEach((propperty) => {
+                const newPropperty = document.createElement("li");
+                newPropperty.textContent = propperty;
+                list.append(newPropperty);
+            });
+        }, 10);
     }
 }
 
