@@ -9,10 +9,12 @@ class Card {
         this.generatreHTML(personaje, image);
         this.generateCharPropperties(ownPropperties);
         this.generateCardInfoDisplays(personaje);
+        this.generateEmoji(personaje);
     }
 
     generatreHTML(personaje, image) {
-        this.element.innerHTML = `<div class="card character__card">
+        this.element.innerHTML = `
+        <div class="card character__card">
             <img
               src="${image}"
               alt="Cara del personaje"
@@ -37,8 +39,7 @@ class Card {
                 </div>
               </div>
             </div>
-            <i class="emoji"></i>
-          </div>`;
+        </div>`;
     }
 
     generateCharPropperties(ownPropperties) {
@@ -66,6 +67,33 @@ class Card {
             icon.className = "fas fa-thumbs-down";
 
             statsDisplayer.append(icon);
+        }
+    }
+
+    generateEmoji(personaje) {
+        const emojiHolder = this.element.querySelector(".card.character__card");
+        const emojiElement = document.createElement("i");
+        emojiElement.className = "emoji";
+        emojiHolder.append(emojiElement);
+
+        switch (personaje.constructor.name) {
+            case "Rey":
+                emojiElement.textContent = "👑";
+                break;
+
+            case "Luchador":
+                emojiElement.textContent = "🗡";
+                break;
+
+            case "Escudero":
+                emojiElement.textContent = "🛡";
+                break;
+
+            case "Asesor":
+                emojiElement.textContent = "🎓";
+                break;
+            default:
+                break;
         }
     }
 }
