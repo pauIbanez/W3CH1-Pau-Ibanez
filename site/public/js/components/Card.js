@@ -1,27 +1,29 @@
 class Card {
     element;
 
-    constructor(personaje, ownPropperties, image) {
+    constructor(personaje, ownPropperties) {
         this.element = document.createElement("li");
         this.element.className = "character col";
         document.querySelector(".characters-list").append(this.element);
 
-        this.generatreHTML(personaje, image);
+        this.generatreHTML(personaje);
         this.generateCharPropperties(ownPropperties);
         this.generateCardInfoDisplays(personaje);
         this.generateEmoji(personaje);
     }
 
-    generatreHTML(personaje, image) {
+    generatreHTML(personaje) {
         this.element.innerHTML = `
         <div class="card character__card">
             <img
-              src="${image}"
+              src="img/${personaje.nombre.toLowerCase()}.jpg"
               alt="Cara del personaje"
               class="character__picture card-img-top"
             />
             <div class="card-body">
-              <h2 class="character__name card-title h4">${personaje.nombre} ${personaje.familia} </h2>
+              <h2 class="character__name card-title h4">${personaje.nombre} ${
+            personaje.familia
+        } </h2>
               <div class="character__info">
                 <ul class="list-unstyled">
                   <li>Edad: ${personaje.edad} años</li>
