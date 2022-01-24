@@ -5,9 +5,12 @@ import getCharacterOwnPropperties from "./getCharacterPropperties.js";
 
 const setup = () => {
     const personajes = inizializePersonajes();
-    const properties = getCharacterOwnPropperties(personajes[0]);
+
+    personajes.forEach((personaje) => {
+        const properties = getCharacterOwnPropperties(personaje);
+        const card = new Card(personaje, properties);
+    });
     const communicator = new Comunications();
-    const card = new Card(personajes[0], properties);
 };
 
 setup();
