@@ -1,4 +1,6 @@
+import Luchador from "./Luchador.js";
 import Personaje from "./Personaje.js";
+
 class Escudero extends Personaje {
   sirveA;
   pelotismo;
