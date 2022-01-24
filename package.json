@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll --verbose",
+    "compile": "sass site/source/scss/style.scss site/public/css/style.css --watch",
+    "srvCompile": "sass site/source/scss/style.scss site/public/css/style.css",
+    "srvModules": "cp -r node_modules site/public/",
+    "srvSetup": "npm run srvCompile && npm run srvModules"
   },
   "jest": {
     "testEnvironment": "jsdom"
