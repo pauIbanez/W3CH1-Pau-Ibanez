@@ -6,10 +6,12 @@ class Card {
         this.element.className = "character col";
         document.querySelector(".characters-list").append(this.element);
 
-        this.generatreHTML(personaje, ownPropperties, image);
+        this.generatreHTML(personaje, image);
+        this.generateCharPropperties(ownPropperties);
+        this.generateCardInfoDisplays(personaje);
     }
 
-    generatreHTML(personaje, ownPropperties, image) {
+    generatreHTML(personaje, image) {
         this.element.innerHTML = `<div class="card character__card">
             <img
               src="${image}"
@@ -37,7 +39,9 @@ class Card {
             </div>
             <i class="emoji"></i>
           </div>`;
+    }
 
+    generateCharPropperties(ownPropperties) {
         const listHolder = this.element.querySelector(".character__overlay");
         const list = listHolder.querySelector(".list-unstyled");
 
@@ -46,20 +50,22 @@ class Card {
             newPropperty.textContent = propperty;
             list.append(newPropperty);
         });
+    }
 
-        const estadoDisplayer = this.element.querySelector(
+    generateCardInfoDisplays(personaje) {
+        const statsDisplayer = this.element.querySelector(
             ".list-unstyled li:nth-child(2)"
         );
         if (personaje.vivo) {
             const icon = document.createElement("i");
             icon.className = "fas fa-thumbs-up";
 
-            estadoDisplayer.append(icon);
+            statsDisplayer.append(icon);
         } else {
             const icon = document.createElement("i");
             icon.className = "fas fa-thumbs-down";
 
-            estadoDisplayer.append(icon);
+            statsDisplayer.append(icon);
         }
     }
 }
