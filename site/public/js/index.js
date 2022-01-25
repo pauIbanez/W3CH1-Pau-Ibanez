@@ -9,7 +9,26 @@ const setup = () => {
     const communicator = new Comunications(document.body, "comunications");
     personajes.forEach((personaje) => {
         const properties = getCharacterOwnPropperties(personaje);
-        const dieButtonAction = () => {};
+        const dieButtonAction = () => {
+            const characters = document.querySelectorAll(".character__card");
+
+            for (const char of characters) {
+                const img = char.querySelector("img");
+                const reducedImg = img.src.split("/");
+                if (
+                    reducedImg[reducedImg.length - 1] ===
+                    `${personaje.nombre.toLowerCase()}.jpg`
+                ) {
+                    img.classList.add("character__picture--dead");
+                    const thumb = char.querySelector(".fas.fa-thumbs-up");
+                    thumb.className = "fas fa-thumbs-down";
+                    return;
+                }
+            }
+
+            // personaje.vivo = false;
+        };
+
         const talkButtonAction = () => {
             communicator.element.classList.add("on");
             communicator.element.querySelector(
@@ -21,6 +40,7 @@ const setup = () => {
             communicator.element.querySelector("p").textContent =
                 personaje.comunicar();
         };
+
         const talkButton = { text: "habla", action: talkButtonAction };
         const dieButton = { text: "muere", action: dieButtonAction };
         const buttons = [talkButton, dieButton];
