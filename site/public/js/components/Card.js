@@ -14,7 +14,7 @@ class Card extends Component {
 
         this.generatreHTML(personaje);
         this.generateCharPropperties(ownPropperties);
-        this.generateCardInfoDisplays(personaje);
+        this.generateCardInfoDisplays();
         this.generateEmoji(personaje);
         this.generateButtons(buttons);
     }
@@ -60,21 +60,15 @@ class Card extends Component {
         });
     }
 
-    generateCardInfoDisplays(personaje) {
+    generateCardInfoDisplays() {
         const statsDisplayer = this.element.querySelector(
             ".list-unstyled li:nth-child(2)"
         );
-        if (personaje.vivo) {
-            const icon = document.createElement("i");
-            icon.className = "fas fa-thumbs-up";
 
-            statsDisplayer.append(icon);
-        } else {
-            const icon = document.createElement("i");
-            icon.className = "fas fa-thumbs-down";
+        const icon = document.createElement("i");
+        icon.className = "fas fa-thumbs-up";
 
-            statsDisplayer.append(icon);
-        }
+        statsDisplayer.append(icon);
     }
 
     generateEmoji(personaje) {
