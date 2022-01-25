@@ -43,8 +43,6 @@ class Card extends Component {
                 <ul class="list-unstyled">
                 </ul>
                 <div class="character__actions">
-                  <button class="character__action btn">habla</button>
-                  <button class="character__action btn">muere</button>
                 </div>
               </div>
             </div>
