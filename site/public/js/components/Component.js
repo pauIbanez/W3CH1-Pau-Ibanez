@@ -7,3 +7,5 @@ class Component {
         parentElement.append(this.element);
     }
 }
+
+export default Component;
