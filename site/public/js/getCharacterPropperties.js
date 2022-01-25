@@ -15,9 +15,6 @@ const getCharacterOwnPropperties = (personaje) => {
         const splittedParam = property.split(/(?=[A-Z])/);
 
         const formatedParam = splittedParam.map((word, i) => {
-            console.log(personaje.nombre);
-            console.log(property);
-
             if (i > 0) {
                 return word.toLowerCase();
             }

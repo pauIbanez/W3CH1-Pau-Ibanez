@@ -2,7 +2,7 @@ import Component from "./Component.js";
 
 class Card extends Component {
     constructor(parentElement, htmlTag, className, personaje, ownPropperties) {
-        super(parentElement, htmlTag, className);
+        super(parentElement, className, htmlTag);
 
         this.generatreHTML(personaje);
         this.generateCharPropperties(ownPropperties);
