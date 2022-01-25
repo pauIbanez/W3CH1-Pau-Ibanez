@@ -18,7 +18,7 @@ const setup = () => {
             properties
         );
     });
-    const communicator = new Comunications();
+    const communicator = new Comunications(document.body, "comunications");
 };
 
 setup();
