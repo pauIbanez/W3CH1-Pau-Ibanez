@@ -9,11 +9,8 @@ const setup = () => {
     const communicator = new Comunications(document.body, "comunications");
     personajes.forEach((personaje) => {
         const properties = getCharacterOwnPropperties(personaje);
-        const dieButtonAction = () => {
-            console.log("button habla");
-        };
+        const dieButtonAction = () => {};
         const talkButtonAction = () => {
-            console.log("button muere");
             communicator.element.classList.add("on");
             communicator.element.querySelector(
                 "img"
