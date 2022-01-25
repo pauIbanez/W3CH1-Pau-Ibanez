@@ -1,3 +1,4 @@
+import ButtonComponent from "./ButtonComponenet.js";
 import Component from "./Component.js";
 
 class Card extends Component {
@@ -107,8 +108,15 @@ class Card extends Component {
 
     generateButtons(buttons) {
         const buttonHolder = this.element.querySelector(".character__actions");
+
         buttons.forEach((button) => {
-            buttonHolder.append(button);
+            // eslint-disable-next-line no-new
+            new ButtonComponent(
+                buttonHolder,
+                "character__action btn",
+                button.text,
+                [{ event: "click", action: button.action }]
+            );
         });
     }
 }

@@ -1,8 +1,8 @@
 import Component from "./Component.js";
 
 class ButtonComponent extends Component {
-    constructor(parentElement, className, text, actions, htmlTag = "div") {
-        super(parentElement, className, htmlTag);
+    constructor(parentElement, className, text, actions) {
+        super(parentElement, className, "button");
 
         this.generatreHTML(text);
         this.addEventListeners(actions);
