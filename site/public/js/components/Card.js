@@ -1,10 +1,8 @@
-class Card {
-    element;
+import Component from "./Component.js";
 
-    constructor(personaje, ownPropperties) {
-        this.element = document.createElement("li");
-        this.element.className = "character col";
-        document.querySelector(".characters-list").append(this.element);
+class Card extends Component {
+    constructor(parentElement, htmlTag, className, personaje, ownPropperties) {
+        super(parentElement, className, htmlTag);
 
         this.generatreHTML(personaje);
         this.generateCharPropperties(ownPropperties);

@@ -1,11 +1,8 @@
-class Comunications {
-    element;
+import Component from "./Component.js";
 
-    constructor() {
-        this.element = document.createElement("div");
-        this.element.className = "comunications";
-
-        document.querySelector("body").append(this.element);
+class Comunications extends Component {
+    constructor(parentElement, className, htmlTag = "div") {
+        super(parentElement, className, htmlTag);
 
         this.generatreHTML();
     }

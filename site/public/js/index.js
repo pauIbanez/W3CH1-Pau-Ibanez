@@ -5,13 +5,20 @@ import getCharacterOwnPropperties from "./getCharacterPropperties.js";
 
 const setup = () => {
     const personajes = inizializePersonajes();
+    const cardContainer = document.querySelector(".app.container ul");
 
     personajes.forEach((personaje) => {
         const properties = getCharacterOwnPropperties(personaje);
         // eslint-disable-next-line no-unused-vars
-        const card = new Card(personaje, properties);
+        const card = new Card(
+            cardContainer,
+            "li",
+            "character col",
+            personaje,
+            properties
+        );
     });
-    const communicator = new Comunications();
+    const communicator = new Comunications(document.body, "comunications");
 };
 
 setup();
