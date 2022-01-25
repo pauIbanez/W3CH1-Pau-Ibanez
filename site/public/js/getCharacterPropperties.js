@@ -1,16 +1,11 @@
 import Asesor from "./Asesor.js";
 import Escudero from "./Escudero.js";
+import Personaje from "./Personaje.js";
 
 const getCharacterOwnPropperties = (personaje) => {
     const propperties = Object.getOwnPropertyNames(personaje);
 
-    const defaultProppertyNames = [
-        "nombre",
-        "familia",
-        "edad",
-        "vivo",
-        "serie",
-    ];
+    const defaultProppertyNames = Object.getOwnPropertyNames(new Personaje());
 
     const characterProperties = propperties.filter(
         (property) => !defaultProppertyNames.includes(property)
