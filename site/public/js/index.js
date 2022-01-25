@@ -7,8 +7,8 @@ const setup = () => {
     const personajes = inizializePersonajes();
     const cardContainer = document.querySelector(".app.container ul");
     const communicator = new Comunications(document.body, "comunications");
+
     personajes.forEach((personaje) => {
-        const properties = getCharacterOwnPropperties(personaje);
         const dieButtonAction = () => {
             const characters = document.querySelectorAll(".character__card");
 
@@ -25,8 +25,6 @@ const setup = () => {
                     return;
                 }
             }
-
-            // personaje.vivo = false;
         };
 
         const talkButtonAction = () => {
@@ -41,9 +39,11 @@ const setup = () => {
                 personaje.comunicar();
         };
 
+        const properties = getCharacterOwnPropperties(personaje);
         const talkButton = { text: "habla", action: talkButtonAction };
         const dieButton = { text: "muere", action: dieButtonAction };
         const buttons = [talkButton, dieButton];
+
         // eslint-disable-next-line no-unused-vars
         const card = new Card(
             cardContainer,
