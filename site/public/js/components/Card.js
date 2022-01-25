@@ -1,13 +1,21 @@
 import Component from "./Component.js";
 
 class Card extends Component {
-    constructor(parentElement, htmlTag, className, personaje, ownPropperties) {
+    constructor(
+        parentElement,
+        htmlTag,
+        className,
+        personaje,
+        ownPropperties,
+        buttons
+    ) {
         super(parentElement, className, htmlTag);
 
         this.generatreHTML(personaje);
         this.generateCharPropperties(ownPropperties);
         this.generateCardInfoDisplays(personaje);
         this.generateEmoji(personaje);
+        this.generateButtons(buttons);
     }
 
     generatreHTML(personaje) {
@@ -95,6 +103,13 @@ class Card extends Component {
             default:
                 break;
         }
+    }
+
+    generateButtons(buttons) {
+        const buttonHolder = this.element.querySelector(".character__actions");
+        buttons.forEach((button) => {
+            buttonHolder.append(button);
+        });
     }
 }
 

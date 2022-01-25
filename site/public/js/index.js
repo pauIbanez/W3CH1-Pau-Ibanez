@@ -15,7 +15,8 @@ const setup = () => {
             "li",
             "character col",
             personaje,
-            properties
+            properties,
+            buttonActions
         );
     });
     const communicator = new Comunications(document.body, "comunications");
