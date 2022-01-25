@@ -8,6 +8,7 @@ const setup = () => {
 
     personajes.forEach((personaje) => {
         const properties = getCharacterOwnPropperties(personaje);
+        // eslint-disable-next-line no-unused-vars
         const card = new Card(personaje, properties);
     });
     const communicator = new Comunications();
