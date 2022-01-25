@@ -19,7 +19,7 @@ class Escudero extends Personaje {
         }
     }
 
-    static filtrarPelotismo(gradoPelotismo) {
+    filtrarPelotismo(gradoPelotismo) {
         if (gradoPelotismo < 0) {
             return 0;
         }

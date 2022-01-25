@@ -16,7 +16,7 @@ class Luchador extends Personaje {
         this.destreza = this.filtraDestreza(valorDestreza);
     }
 
-    static filtraDestreza(valorDestreza) {
+    filtraDestreza(valorDestreza) {
         if (valorDestreza < 0) {
             return 0;
         }
